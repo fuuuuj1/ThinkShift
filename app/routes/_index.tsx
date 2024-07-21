@@ -21,7 +21,7 @@ export default function Index() {
   const { prompt } = useLoaderData();
   return (
     // 画面中央に表示するためにCSSを追加
-    <div className="font-sans p-4 flex justify-center items-center min-h-screen text-xl bg-gray-800 text-white">
+    <div className="font-sans p-4 flex justify-center items-center min-h-dvh text-xl bg-gray-800 text-white">
       <p>{prompt}</p>
     </div>
   );
