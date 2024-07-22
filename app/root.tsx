@@ -16,6 +16,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <title>Think Shift</title>
         <Meta />
         <Links />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body>
         {children}
@@ -28,4 +29,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return <Outlet />;
+}
+
+// Service Workerを登録するためのコード
+if (typeof navigator !== "undefined" && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      })
+      .catch(err => {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+  });
 }
